@@ -1,5 +1,6 @@
-const supabaseUrl = "TON_URL_SUPABASE";
-const supabaseKey = "TA_PUBLISHABLE_KEY";
+const supabaseUrl = "https://dolhojxaiicjlsocthxl.supabase.co/rest/v1/
+";
+const supabaseKey = "sb_publishable_937F1rUifcDcxJEvD3Drxg_Qp9vDdSl";
 
 const supabaseClient = supabase.createClient(
     supabaseUrl,
