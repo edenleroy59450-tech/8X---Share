@@ -1,43 +1,75 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LixFiles</title>
+
+    <title>8x - Share</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <h1>📁 LixFiles</h1>
-    <p class="subtitle">Partage tes fichiers simplement et rapidement</p>
+        <h1>📁 8x Share</h1>
 
-    <div class="upload-box">
+        <p class="subtitle">
+            Partage tes fichiers rapidement et simplement
+        </p>
 
-        <div class="icon">⬆️</div>
 
-        <h2>Envoyer un fichier</h2>
+        <div class="upload-box">
 
-        <p>Sélectionne un fichier pour commencer</p>
+            <div class="icon">
+                ☁️
+            </div>
 
-        <input type="file" id="file">
+            <h2>
+                Envoyer un fichier
+            </h2>
 
-        <button>
-            Envoyer
-        </button>
+            <p>
+                Choisis un fichier puis clique sur envoyer
+            </p>
+
+
+            <input 
+                type="file" 
+                id="file"
+            >
+
+
+            <br>
+
+
+            <button id="uploadBtn">
+                🚀 Envoyer
+            </button>
+
+
+            <p id="status"></p>
+
+        </div>
+
+
+        <footer>
+            © 2026 LixFiles • Par Lixixss
+        </footer>
 
     </div>
 
-    <p class="footer">
-        © 2026 LixFiles • Créé par Lixixss
-    </p>
 
-</div>
-    
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="script.js"></script>
-    
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Ton code -->
+    <script src="script.js"></script>
+
+
 </body>
+
 </html>
