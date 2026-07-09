@@ -26,7 +26,12 @@ uploadBtn.addEventListener("click", async () => {
     status.innerHTML = "⏳ Upload en cours...";
 
 
-    const fileName = Date.now() + "-" + file.name
+    const fileName = Date.now() + ".png";
+
+const { data, error } = await supabaseClient
+    .storage
+    .from("files")
+    .upload(fileName, file);
         .replace(/[^a-zA-Z0-9.]/g, "-");
 
 
