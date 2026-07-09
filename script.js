@@ -1,4 +1,4 @@
-const supabaseUrl = "https://dolhojxaiicjlsocthxl.supabase.co";
+const supabaseUrl = "https://dolhojxaiicjlsocthxl.supabase.co/rest/v1/";
 const supabaseKey = "sb_publishable_937F1rUifcDcxJEvD3Drxg_Qp9vDdSl";
 
 const supabaseClient = supabase.createClient(
@@ -18,30 +18,34 @@ uploadBtn.addEventListener("click", async () => {
 
 
     if (!file) {
-        status.innerHTML = "❌ Choisis un fichier";
+        status.innerHTML = "❌ Choisis un fichier avant d'envoyer";
         return;
     }
 
 
-    status.innerHTML = "⏳ Envoi en cours...";
+    status.innerHTML = "⏳ Upload en cours...";
+
+
+    const fileName = Date.now() + "-" + file.name
+        .replace(/[^a-zA-Z0-9.]/g, "-");
 
 
     const { data, error } = await supabaseClient
         .storage
         .from("files")
-        .upload(
-    "test.png",
-    file
-);
+        .upload(fileName, file);
+
 
 
     if (error) {
 
+        console.error(error);
         status.innerHTML = "❌ Erreur : " + error.message;
 
     } else {
 
-        status.innerHTML = "✅ Fichier envoyé !";
+        console.log(data);
+        status.innerHTML = "✅ Fichier envoyé avec succès !";
 
     }
 
