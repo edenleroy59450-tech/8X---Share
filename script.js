@@ -1,5 +1,4 @@
-const supabaseUrl = "https://dolhojxaiicjlsocthxl.supabase.co/rest/v1/
-";
+const supabaseUrl = "https://dolhojxaiicjlsocthxl.supabase.co/rest/v1/";
 const supabaseKey = "sb_publishable_937F1rUifcDcxJEvD3Drxg_Qp9vDdSl";
 
 const supabaseClient = supabase.createClient(
@@ -8,15 +7,23 @@ const supabaseClient = supabase.createClient(
 );
 
 
-document.getElementById("uploadBtn").onclick = async () => {
+const uploadBtn = document.getElementById("uploadBtn");
+const fileInput = document.getElementById("file");
+const status = document.getElementById("status");
 
-    const fileInput = document.getElementById("file");
+
+uploadBtn.addEventListener("click", async () => {
+
     const file = fileInput.files[0];
 
+
     if (!file) {
-        alert("Choisis un fichier !");
+        status.innerHTML = "❌ Choisis un fichier";
         return;
     }
+
+
+    status.innerHTML = "⏳ Envoi en cours...";
 
 
     const { data, error } = await supabaseClient
@@ -26,10 +33,13 @@ document.getElementById("uploadBtn").onclick = async () => {
 
 
     if (error) {
-        alert("Erreur : " + error.message);
+
+        status.innerHTML = "❌ Erreur : " + error.message;
+
     } else {
-        alert("Fichier envoyé avec succès !");
-        console.log(data);
+
+        status.innerHTML = "✅ Fichier envoyé !";
+
     }
 
-};
+});
