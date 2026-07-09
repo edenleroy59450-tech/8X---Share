@@ -28,7 +28,7 @@ uploadBtn.addEventListener("click", async () => {
 
     const { data, error } = await supabaseClient
         .storage
-        .from("Files")
+        .from("files")
         .upload(
     "test.png",
     file
