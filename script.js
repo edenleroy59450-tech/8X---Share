@@ -28,7 +28,7 @@ uploadBtn.addEventListener("click", async () => {
 
     const { data, error } = await supabaseClient
         .storage
-        .from("files")
+        .from("Files")
         .upload(Date.now() + "-" + file.name.replace(/[^a-zA-Z0-9.]/g, "-"), file);
 
 
